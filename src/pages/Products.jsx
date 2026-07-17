@@ -4,49 +4,29 @@ import Pagination from "../components/Pagination";
 import CategoryFilter from "../components/CategoryFilter";
 import SortProducts from "../components/SortProducts";
 import Loader from "../components/Loader";
-
+import useFetch from "../hooks/useFetch";
+import { useState,useEffect} from "react";
 import "../styles/Products.css";
-import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const itemsPerPage = 12;
+
+  const {
+    data,
+    loading,
+    error,
+  } = useFetch("https://dummyjson.com/products?limit=194");
 
   useEffect(() => {
-
-    const fetchProducts = async () => {
-
-      try {
-
-        const response = await fetch("https://dummyjson.com/products?limit=194");
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch products");
-        }
-
-        const data = await response.json();
-
-        setTimeout(() => {
-          setProducts(data.products);
-          setLoading(false);
-        }, 100);
-
-      } catch (err) {
-
-        setError(err.message);
-        setLoading(false);
-
-      }
-
-    };
-
-    fetchProducts();
-
-  }, []);
+  setSearchParams({ page: 1 });
+}, [search, category, sort]);
+  const products = data.products || [];
 
   if (loading) {
     return <Loader />;
@@ -87,6 +67,16 @@ export default function Products() {
       b.title.localeCompare(a.title)
     );
   }
+
+  const totalPages = Math.ceil(
+    sortedProducts.length / itemsPerPage
+  );
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentProducts = sortedProducts.slice(
+    startIndex,
+    endIndex
+  );
   return (
     <div className="products-page">
 
@@ -96,21 +86,24 @@ export default function Products() {
         <SearchBar
           search={search}
           setSearch={setSearch}
+          setSearchParams={setSearchParams}
         />
         <CategoryFilter
           category={category}
           setCategory={setCategory}
+          setSearchParams={setSearchParams}
         />
         <SortProducts
           sort={sort}
           setSort={setSort}
+          setSearchParams={setSearchParams}
         />
       </div>
 
       <div className="products-grid">
 
         {
-          sortedProducts.map((product) => (
+          currentProducts.map((product) => (
 
             <ProductCard
               key={product.id}
@@ -122,7 +115,11 @@ export default function Products() {
 
       </div>
 
-      <Pagination />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setSearchParams={setSearchParams}
+      />
 
     </div>
   );

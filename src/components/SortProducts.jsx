@@ -1,11 +1,14 @@
 import React from 'react'
 
-export default function SortProducts({ sort, setSort }) {
+export default function SortProducts({ sort, setSort,setSearchParams }) {
 
   return (
     <select
       value={sort}
-      onChange={(e) => setSort(e.target.value)}
+      onChange={(e) => {
+        setSort(e.target.value);
+        setSearchParams({ page: 1 });
+      }}
     >
 
       <option value="">

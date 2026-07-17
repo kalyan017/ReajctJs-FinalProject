@@ -1,23 +1,67 @@
 import React from 'react'
+import "../styles/Paginaation.css";
 
-export default function Pagination() {
+export default function Pagination({
+  currentPage,
+  totalPages,
+  setSearchParams,
+}) {
+  const pagesPerGroup = 4;
 
-  return (
+  const currentGroup = Math.ceil(currentPage / pagesPerGroup);
 
-    <div className="pagination">
+  const startPage = (currentGroup - 1) * pagesPerGroup + 1;
 
-      <button>Previous</button>
-
-      <button>1</button>
-
-      <button>2</button>
-
-      <button>3</button>
-
-      <button>Next</button>
-
-    </div>
-
+  const endPage = Math.min(
+    startPage + pagesPerGroup - 1,
+    totalPages
   );
 
+  const pageNumbers = [];
+
+  for (let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <div className="pagination">
+
+      <button
+        disabled={currentPage === 1}
+        onClick={() =>
+          setSearchParams({
+            page: currentPage - 1,
+          })
+        }
+      >
+        Previous
+      </button>
+
+      {pageNumbers.map((page) => (
+        <button
+          key={page}
+          className={currentPage === page ? "active" : ""}
+          onClick={() =>
+            setSearchParams({
+              page,
+            })
+          }
+        >
+          {page}
+        </button>
+      ))}
+
+      <button
+        disabled={currentPage === totalPages}
+        onClick={() =>
+          setSearchParams({
+            page: currentPage + 1,
+          })
+        }
+      >
+        Next
+      </button>
+
+    </div>
+  );
 }
