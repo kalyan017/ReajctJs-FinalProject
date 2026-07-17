@@ -11,7 +11,7 @@ const initialState = {
 };
 
 
-export default function WishlistContext({ children }) {
+export default function WishlistProvider({ children }) {
 
 
     const [state, dispatch] = useReducer(
