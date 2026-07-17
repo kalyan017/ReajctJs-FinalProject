@@ -16,20 +16,23 @@
 .about-hero p{
     max-width:700px;
     margin:20px auto;
-    color:#666;
+    color:#f7ebeb;
+    font-size: 20px;
     line-height:1.8;
 }
 
 .about-story{
     text-align:center;
-    margin:70px 0;
+    margin:40px 0;
+    font-size: 30px;
 }
 
 .about-story p{
     max-width:900px;
     margin:auto;
     line-height:1.8;
-    color:#555;
+    color:#f7f4f4;
+    font-size: 20px;
 }
 
 .mission-grid{
@@ -81,6 +84,7 @@
 .trust{
     margin:70px 0;
     text-align:center;
+    
 }
 
 .trust h2{

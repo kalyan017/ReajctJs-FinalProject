@@ -7,7 +7,7 @@
 
 .newsletter-container{
 
-    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    background:linear-gradient(135deg,#f1f1f2,#001653);
 
     color:white;
 
@@ -57,7 +57,7 @@
 
     width:380px;
 
-    max-width:100%;
+    max-width:92%;
 
     padding:15px;
 
@@ -79,7 +79,7 @@
 
     border:none;
 
-    padding:15px 28px;
+    padding:15px;
 
     border-radius:8px;
 

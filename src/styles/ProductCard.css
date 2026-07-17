@@ -1,5 +1,5 @@
 .product-card {
-    background: #fff;
+    background: orangered;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
@@ -44,17 +44,19 @@
 
 .product-info {
     padding: 20px;
+  
 }
 
 .product-info h3 {
     font-size: 20px;
     margin-bottom: 8px;
-    color: #222;
+    color: #0b0000;
     height: 50px;
 }
 
 .brand {
-    color: #777;
+    color: #fffdfd;
+    font-size: 20px;
     margin-bottom: 12px;
 }
 
@@ -62,7 +64,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #16a34a;
+    background: #7cfcab;
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
@@ -71,7 +73,7 @@
 }
 
 .price {
-    color: #2563eb;
+    color: #19195b;
     margin-bottom: 20px;
     font-size: 28px;
 }

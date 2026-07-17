@@ -1,11 +1,42 @@
 import { NavLink } from "react-router-dom";
 import "../styles/Navbar.css";
 import { FaShoppingBag, FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
+import { useSearchParams, useNavigate } from "react-router-dom";
+
 
 export default function Navbar() {
+  const [search, setSearch] = useState("");
   const { cartItems } = useContext(CartContext);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchValue = searchParams.get("search") || "";
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+
+    const value = e.target.value;
+
+
+    if (value) {
+
+      setSearchParams({
+        search: value,
+        page: 1
+      });
+
+    }
+    else {
+
+      setSearchParams({
+        page: 1
+      });
+
+    }
+
+
+    navigate("/products");
+
+  };
 
   const totalItems = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -41,10 +72,35 @@ export default function Navbar() {
       </ul>
       <div className="nav-right">
         <div className="search-box">
-          <FaSearch />
-          <input type="text" placeholder="Search products" />
-        </div>
 
+          <FaSearch />
+
+          <input
+            type="text"
+            placeholder="Search products"
+            value={search}
+            onChange={(e) => {
+
+              setSearch(e.target.value);
+              
+
+            }}
+
+            onKeyDown={(e) => {
+
+              if (e.key === "Enter") {
+
+                navigate(
+                  `/products?search=${search}&page=1`
+                );
+
+              }
+
+            }}
+
+          />
+
+        </div>
         <NavLink to="/cart" className="cart-link">
 
           <FaShoppingCart />

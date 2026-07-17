@@ -14,11 +14,12 @@ import "../styles/Products.css";
 
 export default function Products() {
 
-  const [search, setSearch] = useState("");
+
   const [sort, setSort] = useState("");
 
   const [searchParams, setSearchParams] = useSearchParams();
-
+ const search =
+    searchParams.get("search") || "";
   const category = searchParams.get("category") || "all";
 
   const currentPage = Number(searchParams.get("page")) || 1;
@@ -120,7 +121,14 @@ export default function Products() {
 
         <SearchBar
           search={search}
-          setSearch={setSearch}
+          setSearch={(value) => {
+
+            setSearchParams({
+              search: value,
+              page: 1
+            });
+
+          }}
         />
 
         <CategoryFilter

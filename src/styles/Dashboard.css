@@ -14,8 +14,9 @@
 }
 
 .dashboard-header p{
-    color:#666;
+    color:#ffffff;
     margin-top:10px;
+    font-size: 20px;
 }
 
 .dashboard-cards{
