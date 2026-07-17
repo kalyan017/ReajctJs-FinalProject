@@ -1,160 +1,163 @@
-.product-card{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-    transition:.3s;
-    display:flex;
-    flex-direction:column;
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
 }
 
-.product-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 30px rgba(0,0,0,.15);
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .15);
 }
 
-.product-image{
-    position:relative;
-    background:#f8fafc;
-    padding:20px;
+.product-image {
+    position: relative;
+    background: #f8fafc;
+    padding: 20px;
 }
 
-.product-image img{
-    width:100%;
-    height:220px;
-    object-fit:contain;
-    transition:.3s;
+.product-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    transition: .3s;
 }
 
-.product-card:hover img{
-    transform:scale(1.08);
+.product-card:hover img {
+    transform: scale(1.08);
 }
 
-.discount{
-    position:absolute;
-    top:15px;
-    left:15px;
-    background:#ef4444;
-    color:#fff;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:bold;
+.discount {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ef4444;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
-.product-info{
-    padding:20px;
+.product-info {
+    padding: 20px;
 }
 
-.product-info h3{
-    font-size:20px;
-    margin-bottom:8px;
-    color:#222;
-    height:50px;
+.product-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #222;
+    height: 50px;
 }
 
-.brand{
-    color:#777;
-    margin-bottom:12px;
+.brand {
+    color: #777;
+    margin-bottom: 12px;
 }
 
-.rating{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:#16a34a;
-    color:white;
-    padding:5px 12px;
-    border-radius:20px;
-    font-size:14px;
-    margin-bottom:15px;
+.rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #16a34a;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
-.price{
-    color:#2563eb;
-    margin-bottom:20px;
-    font-size:28px;
+.price {
+    color: #2563eb;
+    margin-bottom: 20px;
+    font-size: 28px;
 }
 
-.button-group{
-    display:flex;
-    gap:10px;
+.button-group {
+    display: flex;
+    gap: 10px;
 }
 
-.button-group button{
-    flex:1;
-    border:none;
-    cursor:pointer;
-    padding:12px;
-    border-radius:8px;
-    font-size:15px;
-    transition:.3s;
+.button-group button {
+    flex: 1;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: .3s;
 }
 
-.cart-btn{
-    background:#2563eb;
-    color:white;
+.cart-btn {
+    background: #2563eb;
+    color: white;
 }
 
-.cart-btn:hover{
-    background:#1d4ed8;
+.cart-btn:hover {
+    background: #1d4ed8;
 }
 
-.details-btn{
-    background:#16a34a;
-    color:white;
+.details-btn {
+    background: #16a34a;
+    color: white;
 }
 
-.details-btn:hover{
-    background:#15803d;
+.details-btn:hover {
+    background: #15803d;
 }
 
-.button-group a{
-    flex:1;
+.button-group a {
+    flex: 1;
 }
 
-.button-group a button{
-    width:100%;
+.button-group a button {
+    width: 100%;
 }
 
-.wishlist-btn{
+.product-image {
+    position: relative;
+}
 
-    position:absolute;
 
-    top:15px;
+.wishlist-btn {
 
-    right:15px;
+    position: absolute;
 
-    width:42px;
+    top: 15px;
+    right: 15px;
 
-    height:42px;
+    z-index: 10;
 
-    border:none;
+    width: 40px;
+    height: 40px;
 
-    border-radius:50%;
+    border: none;
 
-    background:white;
+    border-radius: 50%;
 
-    color:#ef4444;
+    background: white;
 
-    cursor:pointer;
+    color: #ef4444;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    cursor: pointer;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    transition:.3s;
+    font-size: 18px;
 
 }
 
-.wishlist-btn:hover{
+.wishlist-btn:hover {
 
-    background:#ef4444;
+    background: #ef4444;
 
-    color:white;
+    color: white;
 
 }

@@ -26,12 +26,16 @@ export default function ProductCard({ product }) {
 
         <button
           className="wishlist-btn"
-          onClick={() =>
+          onClick={() => {
+
+            console.log("Clicked wishlist", product);
+
             wishlistDispatch({
               type: "ADD_TO_WISHLIST",
               payload: product,
-            })
-          }
+            });
+
+          }}
         >
           <FaHeart />
         </button>
