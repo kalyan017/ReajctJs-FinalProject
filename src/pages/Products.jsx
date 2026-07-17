@@ -13,6 +13,8 @@ export default function Products() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+  const [sort, setSort] = useState("");
 
   useEffect(() => {
 
@@ -31,14 +33,14 @@ export default function Products() {
         setTimeout(() => {
           setProducts(data.products);
           setLoading(false);
-        }, 500);
+        }, 100);
 
       } catch (err) {
 
         setError(err.message);
         setLoading(false);
 
-      } 
+      }
 
     };
 
@@ -53,11 +55,38 @@ export default function Products() {
     return <h2>{error}</h2>;
   }
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
 
+    const matchesCategory =
+      category === "all" || product.category === category;
 
+    return matchesSearch && matchesCategory;
+  });
+
+  let sortedProducts = [...filteredProducts];
+
+  if (sort === "low") {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  }
+
+  else if (sort === "high") {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  }
+
+  else if (sort === "az") {
+    sortedProducts.sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+  }
+
+  else if (sort === "za") {
+    sortedProducts.sort((a, b) =>
+      b.title.localeCompare(a.title)
+    );
+  }
   return (
     <div className="products-page">
 
@@ -68,14 +97,20 @@ export default function Products() {
           search={search}
           setSearch={setSearch}
         />
-        <CategoryFilter />
-        <SortProducts />
+        <CategoryFilter
+          category={category}
+          setCategory={setCategory}
+        />
+        <SortProducts
+          sort={sort}
+          setSort={setSort}
+        />
       </div>
 
       <div className="products-grid">
 
         {
-          filteredProducts.map((product) => (
+          sortedProducts.map((product) => (
 
             <ProductCard
               key={product.id}

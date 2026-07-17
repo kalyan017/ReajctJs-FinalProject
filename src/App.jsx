@@ -18,6 +18,7 @@ import Orders from "./pages/Orders";
 import Wishlist from "./pages/Wishlist";
 import Settings from "./pages/Settings";
 
+
 export default function App() {
     return (
         <div>

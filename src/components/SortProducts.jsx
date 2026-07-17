@@ -1,24 +1,33 @@
 import React from 'react'
 
-export default function Sortproducts() {
+export default function SortProducts({ sort, setSort }) {
+
   return (
-    <div>
+    <select
+      value={sort}
+      onChange={(e) => setSort(e.target.value)}
+    >
 
-      <select>
+      <option value="">
+        Sort Products
+      </option>
 
-        <option>Sort By</option>
+      <option value="low">
+        Price Low to High
+      </option>
 
-        <option>Price Low to High</option>
+      <option value="high">
+        Price High to Low
+      </option>
 
-        <option>Price High to Low</option>
+      <option value="az">
+        A - Z
+      </option>
 
-        <option>A-Z</option>
+      <option value="za">
+        Z - A
+      </option>
 
-        <option>Z-A</option>
-
-      </select>
-
-
-    </div>
-  )
+    </select>
+  );
 }
