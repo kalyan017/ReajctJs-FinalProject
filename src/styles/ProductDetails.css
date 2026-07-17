@@ -57,7 +57,7 @@
 
 .price{
 
-    color:#2563eb;
+    color:#ffffff;
 
     margin:20px 0;
 
@@ -69,14 +69,14 @@
 
     line-height:1.7;
 
-    color:#555;
-
+    color:#fffdfd;
+    font-size: 20px;
     margin:20px 0;
 
 }
 
 .in-stock{
-    color:green;
+    color:rgb(25, 178, 25);
 
     font-weight:bold;
 
