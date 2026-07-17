@@ -1,32 +1,63 @@
+import "../styles/WhyChooseUs.css";
+
 export default function WhyChooseUs() {
 
   const features = [
 
-    "🚚 Free Delivery",
+    {
+      icon: "🚚",
+      title: "Free Delivery",
+      desc: "Free shipping on orders over ₹999."
+    },
 
-    "🔒 Secure Payments",
+    {
+      icon: "🔒",
+      title: "Secure Payments",
+      desc: "100% safe and encrypted checkout."
+    },
 
-    "💰 Best Prices",
+    {
+      icon: "💰",
+      title: "Best Prices",
+      desc: "Amazing deals and exclusive discounts."
+    },
 
-    "🎧 24/7 Support"
+    {
+      icon: "🎧",
+      title: "24/7 Support",
+      desc: "Friendly support whenever you need it."
+    }
 
   ];
 
   return (
 
-    <section>
+    <section className="why">
 
-      <h2>Why Choose Us</h2>
+      <h2>Why Choose EasyBuy?</h2>
 
-      <div>
+      <p className="why-subtitle">
+        Shopping made simple, secure, and affordable.
+      </p>
+
+      <div className="why-grid">
 
         {
 
           features.map((item, index) => (
 
-            <div key={index}>
+            <div
+              className="why-card"
+              key={index}
+            >
 
-              <h3>{item}</h3>
+              <div className="why-icon">
+                {item.icon}
+              </div>
+
+              <h3>{item.title}</h3>
+
+              <p>{item.desc}</p>
 
             </div>
 
@@ -38,6 +69,6 @@ export default function WhyChooseUs() {
 
     </section>
 
-  )
+  );
 
 }

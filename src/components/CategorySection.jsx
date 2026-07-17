@@ -1,39 +1,75 @@
+import { Link } from "react-router-dom";
+import "../styles/CategorySection.css";
+import {
+  FaLaptop,
+  FaTshirt,
+  FaCouch,
+  FaMobileAlt,
+  FaShoppingBasket,
+  FaSpa,
+} from "react-icons/fa";
+
 const categories = [
   {
-    id:1,
-    name:"Electronics"
+    name: "Smartphones",
+    icon: <FaMobileAlt />,
+    color: "#3b82f6",
   },
   {
-    id:2,
-    name:"Fashion"
+    name: "Laptops",
+    icon: <FaLaptop />,
+    color: "#8b5cf6",
+  },
+ 
+  {
+    name: "Furniture",
+    icon: <FaCouch />,
+    color: "#10b981",
   },
   {
-    id:3,
-    name:"Furniture"
+    name: "Groceries",
+    icon: <FaShoppingBasket />,
+    color: "#f59e0b",
   },
   {
-    id:4,
-    name:"Groceries"
-  }
+    name: "Beauty",
+    icon: <FaSpa />,
+    color: "#ef4444",
+  },
 ];
 
 export default function CategorySection() {
   return (
-    <section>
+    <section className="category-section">
 
       <h2>Shop by Category</h2>
 
-      <div className="category-container">
+      <p>
+        Find products from your favorite categories.
+      </p>
 
-        {
-          categories.map((category)=>(
-            <div key={category.id} className="category-card">
+      <div className="category-grid">
 
-              <h3>{category.name}</h3>
+        {categories.map((category) => (
 
+          <Link
+            key={category.name}
+            to={`/products?category=${category.name.toLowerCase()}`}
+            className="category-card"
+          >
+
+            <div
+              className="category-icon"
+              style={{ color: category.color }}
+            >
+              {category.icon}
             </div>
-          ))
-        }
+
+            <h3>{category.name}</h3>
+
+          </Link>
+
+        ))}
 
       </div>
 

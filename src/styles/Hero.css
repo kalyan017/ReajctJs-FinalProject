@@ -1,0 +1,78 @@
+.hero{
+
+    width:90%;
+    margin:40px auto;
+
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+
+    border-radius:20px;
+
+    color:white;
+
+    padding:70px;
+
+}
+
+.offer-tag{
+
+    background:white;
+
+    color:#2563eb;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+
+}
+
+.hero h1{
+
+    font-size:52px;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    max-width:600px;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+.shop-btn{
+
+    background:white;
+
+    color:#2563eb;
+
+    padding:14px 35px;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.shop-btn:hover{
+
+    background:#f3f4f6;
+
+}

@@ -5,6 +5,7 @@ export default function Pagination({
   currentPage,
   totalPages,
   setSearchParams,
+  searchParams={searchParams}
 }) {
   const pagesPerGroup = 4;
 

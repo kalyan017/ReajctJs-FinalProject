@@ -1,15 +1,32 @@
+import "../styles/Newsletter.css";
+
 export default function Newsletter() {
   return (
-    <section>
+    <section className="newsletter">
 
-      <h2>Subscribe to our Newsletter</h2>
+      <div className="newsletter-container">
 
-      <input
-        type="email"
-        placeholder="Enter your email"
-      />
+        <h2>Stay Updated</h2>
 
-      <button>Subscribe</button>
+        <p>
+          Subscribe to get the latest products,
+          exclusive discounts, and special offers.
+        </p>
+
+        <div className="newsletter-form">
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+          />
+
+          <button>
+            Subscribe
+          </button>
+
+        </div>
+
+      </div>
 
     </section>
   );

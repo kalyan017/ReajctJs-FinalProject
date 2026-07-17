@@ -1,51 +1,77 @@
-const reviews=[
+import "../styles/Testimonials.css";
 
-{
-id:1,
-name:"Rahul",
-review:"Excellent products and fast delivery."
-},
+export default function Testimonials() {
 
-{
-id:2,
-name:"Priya",
-review:"Very easy shopping experience."
-},
+    const reviews = [
 
-{
-id:3,
-name:"Arjun",
-review:"Affordable prices and good quality."
-}
+        {
+            name: "Rahul Sharma",
+            rating: "⭐⭐⭐⭐⭐",
+            review:
+                "Amazing products and very fast delivery. Highly recommended!",
+        },
 
-];
+        {
+            name: "Priya Reddy",
+            rating: "⭐⭐⭐⭐⭐",
+            review:
+                "The quality exceeded my expectations. Great shopping experience!",
+        },
 
-export default function Testimonials(){
+        {
+            name: "Arjun Kumar",
+            rating: "⭐⭐⭐⭐⭐",
+            review:
+                "Easy to use website, secure payment, and excellent customer support.",
+        },
 
-return(
+    ];
 
-<section>
+    return (
 
-<h2>Customer Reviews</h2>
+        <section className="testimonials">
 
-{
+            <h2>What Our Customers Say</h2>
 
-reviews.map((user)=>(
+            <p className="testimonial-subtitle">
+                Thousands of happy customers trust EasyBuy.
+            </p>
 
-<div key={user.id}>
+            <div className="testimonial-grid">
 
-<h3>{user.name}</h3>
+                {
 
-<p>{user.review}</p>
+                    reviews.map((review, index) => (
 
-</div>
+                        <div
+                            className="testimonial-card"
+                            key={index}
+                        >
 
-))
+                            <div className="customer-avatar">
+                                {review.name.charAt(0)}
+                            </div>
 
-}
+                            <div className="stars">
+                                {review.rating}
+                            </div>
 
-</section>
+                            <p className="review">
+                                "{review.review}"
+                            </p>
 
-)
+                            <h4>{review.name}</h4>
+
+                        </div>
+
+                    ))
+
+                }
+
+            </div>
+
+        </section>
+
+    );
 
 }

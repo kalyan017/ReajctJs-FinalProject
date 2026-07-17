@@ -1,12 +1,17 @@
 import React from 'react'
 
-export default function CategoryFilter({ category, setCategory,setSearchParams }) {
+export default function CategoryFilter({ category, setCategory, setSearchParams }) {
   return (
     <select
       value={category}
       onChange={(e) => {
-        setCategory(e.target.value);
-        setSearchParams({ page: 1 });
+        const value = e.target.value;
+        setCategory(value);
+        setSearchParams({
+          page: 1,
+          category: value
+        });
+
       }}
     >
       <option value="all">All Categories</option>

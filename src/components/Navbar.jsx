@@ -1,13 +1,21 @@
 import { NavLink } from "react-router-dom";
 import "../styles/Navbar.css";
-import {FaShoppingBag , FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
+import { FaShoppingBag, FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 export default function Navbar() {
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   return (
     <nav className="navbar">
 
       <div className="logo">
-      <h2>🛒 EasyBuy</h2>
+        <h2>🛒 EasyBuy</h2>
       </div>
 
       <ul className="nav-links">
@@ -37,8 +45,18 @@ export default function Navbar() {
           <input type="text" placeholder="Search products" />
         </div>
 
-        <NavLink to="/cart">
-          <FaShoppingCart /> Cart
+        <NavLink to="/cart" className="cart-link">
+
+          <FaShoppingCart />
+
+          Cart
+
+          {totalItems > 0 && (
+            <span className="cart-badge">
+              {totalItems}
+            </span>
+          )}
+
         </NavLink>
 
         <NavLink to="/profile">

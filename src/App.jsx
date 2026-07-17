@@ -17,7 +17,7 @@ import Dashboard from "./pages/Dashboard";
 import Orders from "./pages/Orders";
 import Wishlist from "./pages/Wishlist";
 import Settings from "./pages/Settings";
-
+import NotFound from "./pages/NotFound";
 
 export default function App() {
     return (
@@ -37,6 +37,7 @@ export default function App() {
                     <Route path='wishlist' element={<Wishlist />} />
                     <Route path='settings' element={<Settings />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer/>
         </div>
