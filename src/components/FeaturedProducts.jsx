@@ -1,63 +1,68 @@
+import ProductCard from "./ProductCard";
+
 const products = [
 
-{
-id:1,
-name:"Laptop",
-price:65000
-},
+    {
+        id: 1,
+        title: "Laptop",
+        category: "Electronics",
+        price: 65000,
+        image: "https://via.placeholder.com/250"
+    },
 
-{
-id:2,
-name:"Headphones",
-price:2500
-},
+    {
+        id: 2,
+        title: "Shoes",
+        category: "Fashion",
+        price: 3000,
+        image: "https://via.placeholder.com/250"
+    },
 
-{
-id:3,
-name:"Smart Watch",
-price:5000
-},
+    {
+        id: 3,
+        title: "Watch",
+        category: "Accessories",
+        price: 4000,
+        image: "https://via.placeholder.com/250"
+    },
 
-{
-id:4,
-name:"Shoes",
-price:3000
-}
+    {
+        id: 4,
+        title: "Headphones",
+        category: "Electronics",
+        price: 2500,
+        image: "https://via.placeholder.com/250"
+    }
 
 ];
 
-export default function FeaturedProducts(){
+export default function FeaturedProducts() {
 
-return(
+    return (
 
-<section>
+        <section>
 
-<h2>Featured Products</h2>
+            <h2>Featured Products</h2>
 
-<div className="product-container">
+            <div className="products-grid">
 
-{
+                {
 
-products.map((product)=>(
+                    products.map((product) => (
 
-<div key={product.id} className="product-card">
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                        />
 
-<h3>{product.name}</h3>
+                    ))
 
-<p>₹ {product.price}</p>
+                }
 
-<button>View Product</button>
+            </div>
 
-</div>
+        </section>
 
-))
-
-}
-
-</div>
-
-</section>
-
-)
+    )
 
 }
